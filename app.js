@@ -1,7 +1,7 @@
 "use strict";
 module.exports = {
-    Commands: require("./commands/commands"),
-    Events: require("./events/events"),
-    Modeus_Client: require("./client/modeus_client"),
-    Modeus_Module: require("./core/module"),
+    ModeusCommands: require("./commands/commands"),
+    ModeusEvents: require("./events/events"),
+    ModeusClient: require("./client/modeus_client"),
+    ModeusModule: require("./core/module"),
 };
