@@ -7,9 +7,11 @@ const fs_1 = require("fs");
 class Handler {
     name;
     directory;
+    modules;
     constructor(name, directory) {
         this.name = name;
         this.directory = directory;
+        this.modules = [];
     }
     /**
      * loadModulesFromDirectory
@@ -18,7 +20,7 @@ class Handler {
      * @param directory directory to load modules from.
      * @returns
      */
-    loadModulesFromDirectory(directory = this.directory) {
+    async loadModulesFromDirectory(directory = this.directory) {
         // Definition block. + readdirSync for synchronous read of directory.
         const files = fs_1.readdirSync(this.directory);
         let new_path;
@@ -30,8 +32,8 @@ class Handler {
             if (fs_1.statSync(new_path).isDirectory())
                 return this.loadModulesFromDirectory(new_path);
             // Finally, if the file is a .js file, then we return the path of  the file.
-            else
-                return new_path;
+            else if (file.endsWith(".js"))
+                this.modules.push(new_path);
         }
         ;
     }

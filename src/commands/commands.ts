@@ -11,6 +11,7 @@ export default abstract class Command extends Modeus_Module{
     args: string[] = [];
     guildOnly: boolean;
     ownerOnly: boolean;
+    disabled: boolean;
     constructor(name: string, description: string, usage: string, aliases: string[], guildOnly: boolean, ownerOnly: boolean) {
         super(name);
         this.description = description;
@@ -18,6 +19,7 @@ export default abstract class Command extends Modeus_Module{
         this.aliases = aliases;
         this.guildOnly = guildOnly;
         this.ownerOnly = ownerOnly;
+        this.disabled = false;
     }
     abstract run(message: Message, args: string[]): void;
 }

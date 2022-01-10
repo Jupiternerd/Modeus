@@ -7,9 +7,11 @@ import { readdir, readdirSync, statSync } from "fs";
 export default class Handler {
     name: string;
     directory: string;
+    modules: string[] 
     constructor(name: string, directory: string) {
         this.name = name;
         this.directory = directory;
+        this.modules = [];
     }
 
     /**
@@ -20,7 +22,7 @@ export default class Handler {
      * @returns 
      */
 
-    loadModulesFromDirectory(directory: string = this.directory): string | undefined {
+    async loadModulesFromDirectory(directory: string = this.directory): Promise<void> {
         // Definition block. + readdirSync for synchronous read of directory.
         const files = readdirSync(this.directory);
         let new_path: string;
@@ -32,7 +34,7 @@ export default class Handler {
             // And if that file is a directory, then we call this function again, recursively.
             if (statSync(new_path).isDirectory()) return this.loadModulesFromDirectory(new_path);
             // Finally, if the file is a .js file, then we return the path of  the file.
-            else return new_path;
+            else if (file.endsWith(".js")) this.modules.push(new_path);
         };
     };
 

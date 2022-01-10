@@ -14,6 +14,7 @@ class Command extends module_1.default {
     args = [];
     guildOnly;
     ownerOnly;
+    disabled;
     constructor(name, description, usage, aliases, guildOnly, ownerOnly) {
         super(name);
         this.description = description;
@@ -21,6 +22,7 @@ class Command extends module_1.default {
         this.aliases = aliases;
         this.guildOnly = guildOnly;
         this.ownerOnly = ownerOnly;
+        this.disabled = false;
     }
 }
 exports.default = Command;

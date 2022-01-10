@@ -1,6 +1,6 @@
 {
   "name": "modeus",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Modeus Discord framework",
   "main": "app.js",
   "scripts": {

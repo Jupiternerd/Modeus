@@ -12,8 +12,17 @@ export default class Event_Handler extends Handler {
 
     }
 
-    async loadEvents() {
-        const events = this.loadModulesFromDirectory(this.directory)
+    /**
+     * Starts the handler. Run first to load the modules.
+     * @param module 
+     */
+     async initialize() {
+        await this.loadModulesFromDirectory();
+        for (const module of this.modules) await this.handle(new Event(module));
+        
+    }
+
+    async handle(module: Event) {
 
     }
 }
