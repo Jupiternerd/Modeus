@@ -1,0 +1,27 @@
+{
+  "name": "modeus",
+  "version": "0.0.1",
+  "description": "Modeus Discord framework",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jupiternerd/Modeus.git"
+  },
+  "keywords": [
+    "Discord",
+    "framework"
+  ],
+  "author": "Jupiternerd / Wai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jupiternerd/Modeus/issues"
+  },
+  "homepage": "https://github.com/Jupiternerd/Modeus#readme",
+  "dependencies": {
+    "discord.js": "^13.5.1",
+    "fs": "^0.0.1-security"
+  }
+}
